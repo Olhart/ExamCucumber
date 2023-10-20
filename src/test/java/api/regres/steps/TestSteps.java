@@ -4,6 +4,7 @@ import api.regres.config.Properties;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.Затем;
+import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Тогда;
 import io.restassured.response.Response;
 import org.json.JSONObject;
@@ -16,10 +17,9 @@ import static api.common.steps.CommonAPISteps.getJSONFromResponse;
 import static api.regres.steps.APISteps.createNewUserAndGetResponce;
 import static api.regres.steps.APISteps.setBodyOfRequest;
 import static api.regres.steps.AssertSteps.*;
-import static api.regres.steps.ParseJSONSteps.*;
+import static api.regres.steps.ParseJSONSteps.getJSONObjFromFile;
 
 public class TestSteps {
-    final private int statusCode201 = 201;
     private static Properties properties = Properties.properties;
     private static JSONObject requestBodyJSON;
 
@@ -44,7 +44,12 @@ public class TestSteps {
         response = createNewUserAndGetResponce();
     }
 
-    @Тогда("Проверить валидность возвращенных данных")
+    @Тогда("Код статуса ответа должен быть {int}")
+    public static void checkStatusCode(int statusCode) {
+        resStatusCodeEqual(response, statusCode);
+    }
+
+    @И("Проверить валидность возвращенных данных")
     public static void validateDataFromResponse() {
         JSONObject responseBodyJSON = getJSONFromResponse(response);
 

@@ -1,6 +1,5 @@
-package api.rickandmorty.steps;
+package api.rickandmorty.steps.entity;
 
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.json.JSONObject;

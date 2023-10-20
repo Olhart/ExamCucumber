@@ -1,8 +1,8 @@
 package api.rickandmorty.steps;
 
+import api.rickandmorty.steps.entity.PersonageResponse;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
-import io.cucumber.java.ru.Тогда;
 
 public class TestSteps {
     static PersonageResponse firstCharRes;

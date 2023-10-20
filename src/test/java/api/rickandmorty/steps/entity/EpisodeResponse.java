@@ -1,4 +1,4 @@
-package api.rickandmorty.steps;
+package api.rickandmorty.steps.entity;
 
 import io.restassured.response.Response;
 import org.json.JSONObject;
